@@ -25,9 +25,6 @@ const [expanded, toggleExpanded] = useToggle(false);
         <Button onClick={toggleExpanded} ariaExpanded={expanded} variant="outline">
           {expanded ? "Show Less ▲" : "Read More ▼"}
         </Button>
-        <nav aria-label="navigation to projects">
-        <Link to="/projects" className="cardlink">My Projects!</Link>
-        </nav>
       </CardFooter>
     </Card>
   );
