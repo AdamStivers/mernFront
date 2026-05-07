@@ -1,0 +1,387 @@
+/* reset */
+*, *::after, *::before {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* color schemes */
+:root {
+  color-scheme: light;
+  --bg:           #FFE8D4;
+  --text:         black;
+  --nav-bg:       #45062E;
+  --color-accent: #EBD2BE;
+  --active-bg:    #e523b1;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+  --bg:           #191308;
+  --text:         white;
+  --nav-bg:       #677DB7;
+  --color-accent: #322A26;
+  --active-bg:    #454B66;
+  }
+}
+
+
+/* Toggled dark mode (overrides media query) */
+.darkmode {
+  color-scheme: dark;
+  --bg:           #191308;
+  --text:         white;
+  --nav-bg:       #677DB7;
+  --color-accent: #322A26;
+  --active-bg:    #454B66;
+}
+
+html{
+  color-scheme: dark light;
+}
+
+
+/* dark mode toggle button */
+#toggleMode {
+  height: 50px;
+  width: 50px;
+  padding: 0;
+  border-radius: 50%;
+  background-color: var(--active-bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  z-index: 200;
+}
+
+#toggleMode svg {
+  fill: var(--nav-bg);
+}
+
+#toggleMode svg:last-child {
+  display: none;
+}
+
+.darkmode #toggleMode svg:first-child {
+  display: none;
+}
+
+.darkmode #toggleMode svg:last-child {
+  display: block;
+}
+
+/*  body main and title*/
+body {
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  color-scheme: light;
+
+  --bg:           #FFE8D4;
+  --text:         black;
+  --nav-bg:       #45062E;
+  --color-accent: #EBD2BE;
+  --active-bg:    #e523b1;
+
+  color: var(--text);
+  background-color: var(--color-accent);
+}
+
+body.darkmode{
+  color-scheme: dark;
+  --bg:           #191308;
+  --text:         white;
+  --nav-bg:       #677DB7;
+  --color-accent: #322A26;
+  --active-bg:    #454B66;
+  color: var(--text);
+  background-color: var(--color-accent);
+}
+
+@media (prefers-color-scheme: dark) {
+  body:not(.lightmode) {
+  color-scheme: dark;
+  --bg:           #191308;
+  --text:         white;
+  --nav-bg:       #677DB7;
+  --color-accent: #322A26;
+  --active-bg:    #454B66;
+  }
+}
+
+main {
+  height: 100%;
+  flex: 1;
+  min-height: 100vh;
+}
+
+.title {
+  background-image: linear-gradient(90deg, var(--active-bg), var(--nav-bg));
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+  padding: 0.5em;
+  font-size: 31pt;
+}
+
+.title.darkmode{
+   background-image: linear-gradient(90deg, var(--active-bg), var(--nav-bg));
+}
+/* navigation styling*/
+
+.nav-links {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  margin: 1em 0;
+  flex-wrap: wrap;
+}
+
+.nav-links a {
+  display: block;
+  padding: 12px;
+  margin: 0.5rem;
+  text-decoration: none;
+  font-size: 12pt;
+  transition: all ease-in-out 100ms;
+  color: var(--text);
+  border-radius: 12px;
+}
+
+.nav-links a:hover {
+  border-color: var(--active-bg);
+}
+
+.active {
+  background-color: var(--active-bg);
+  border: 2px solid var(--active-bg);
+  padding: 4px;
+  white-space: nowrap;
+}
+
+.inactive {
+  background-color: var(--bg);
+  border: 2px solid var(--nav-bg);
+  padding: 4px;
+  white-space: nowrap;
+}
+
+/* topics per page */
+.topic {
+  background-color: var(--color-accent);
+  color: var(--nav-bg);
+  padding: 0 0.5em;
+  margin: 10px 0 20px;
+  font-size: 20pt;
+}
+
+/*home page and skill page content */
+.aboutmecontent{
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; 
+  padding: 2em;             
+  background-color: var(--bg);
+  color: var(--text);
+  font-size: 12pt;
+}
+
+.skillcontent{
+    display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: left;
+  justify-content: flex-start; 
+  padding: 2em;             
+  background-color: var(--bg);
+  color: var(--text);
+  font-size: 12pt;
+}
+.self {
+  height: 30%;
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+}
+
+.content{
+   max-width: 150ch;
+}
+
+.headshot {
+  width: 100%;
+  height: auto;
+  border: none;
+  display: flex;
+  background-color: var(--bg);
+  color: var(--text);
+  padding: 2em;
+}
+
+/* tags */
+.tag {
+  background-color: rgb(167, 167, 167);
+  color: black;
+  font-size: 12pt;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* buttons*/
+.btn {
+  border-radius: 6px;
+  padding: .5em;
+  font-size: 12pt;
+  cursor: pointer;
+}
+
+.btn--outline {
+  background: none;
+  border: 1px solid var(--nav-bg);
+  color: var(--text);
+}
+
+.btn--outline:hover {
+  background-color: var(--active-bg);
+  color: var(--text);
+}
+
+.btn--solid {
+  background-color: var(--active-bg);
+  color: var(--text);
+  border: 1px solid;
+}
+
+.btn--solid:hover {
+  opacity: 0.5;
+}
+
+.btn--ghost {
+  background: none;
+  border: 1px solid;
+  color: var(--text);
+}
+
+.btn--ghost:hover {
+  border-color: var(--nav-bg);
+  color: var(--text);
+}
+
+/* contact form sytle */
+.contactform {
+  display: block;
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+.form {
+  padding: 1em 2em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.form label {
+  font-size: 0.9rem;
+  color: var(--text);
+  font-size: 12pt;
+}
+
+#name, #email, #phone, #message {
+  background-color: rgb(187, 178, 180);
+  width: 100%;
+  padding: 0.4em;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 12pt;
+  color: black;
+}
+
+#message {
+  min-height: 100px;
+  resize: vertical;
+}
+
+#submit {
+  background-color: grey;
+  padding: 1em;
+  font-size: 12pt;
+}
+
+/* footer section*/
+.footernav, .footerlink, .copyright {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-accent);
+}
+
+.foot-links, .foot-social, .copyright {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  list-style: none;
+}
+
+.foot-links a {
+  display: block;
+  padding: 4px;
+  margin: 0.5rem;
+  color: var(--text);
+  text-decoration: underline;
+  font-size: 12pt;
+  transition: all ease-in-out 100ms;
+}
+
+.foot-social a {
+  display: flex;
+  color: var(--text);
+  text-decoration: underline;
+  margin: 0.5rem;
+  font-size: 12pt;
+}
+
+.copyright {
+  font-size: 12pt;
+  color: var(--text);
+  padding: 0.5em;
+}
+
+/* query for phone resizing */
+@media (max-width: 768px) {
+  .nav-links, .copyright {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .foot-links {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    border-bottom: 2px solid var(--color-accent);
+    list-style-type: ">";
+    padding-left: 1em;
+  }
+
+  .foot-social {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #name, #email, #phone, #message {
+    width: 100%;
+  }
+}

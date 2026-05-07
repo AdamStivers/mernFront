@@ -1,0 +1,251 @@
+/* card grids */
+.card-grid-section {
+  padding: 2em;
+  background-color: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: auto-fit, minmax(280px,1fr);
+  gap: 2em;
+}
+
+.about-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+  gap: 2em;
+  max-width: 1618px;
+}
+
+.project-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+  gap: 2em;
+  max-width: 1618px;
+}
+
+/* api card */
+.api-card-grid {
+  display: grid;
+  grid-template-columns: auto-fit, minmax(280px,1fr);
+  gap: 2em;
+  max-width: 800px;
+  margin: 2em;
+}
+
+.resume-card-grid {
+  display: grid;
+  grid-template-columns: auto-fit, minmax(280px,1fr); 
+  gap: 2em;
+  max-width: 1200px;
+
+}
+
+/* Base card */
+.card {
+  background-color: var(--color-accent);
+  border-left: 4px solid var(--nav-bg);
+  border-radius: 0 12px 12px 0;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 1);
+}
+
+.card--api{
+  border: 4px solid var(--nav-bg);
+  border-radius: 12px;
+}
+
+.cardlink {
+  border-radius: 6px;
+  padding: .5em;
+  font-size: 12pt;
+  cursor: pointer;
+  background-color: var(--active-bg);
+  border: 2px solid var(--nav-bg);
+  color: var(--text);
+  text-decoration: none;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 1);
+}
+
+/* card header format */
+.card__header {
+  padding: 1em 1.618em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.card__title {
+  color: var(--nav-bg);
+  font-size: 12pt;
+  font-weight: bold;
+  border-bottom: 2px solid var(--nav-bg);
+  padding-bottom: 0.5em;
+}
+
+.card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5em;
+  padding: .5em;
+}
+
+/* card media format */
+.card__media {
+  aspect-ratio:16/9;
+  overflow: hidden;
+}
+
+.card__media-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.card:hover .card__media-img {
+  transform: scale(1.05);
+}
+
+
+/* card body format*/
+.card__body {
+  padding: 1em 1.618em;
+  flex: 1;
+}
+
+.card__body-text {
+  color: var(--text);
+  font-size: 12pt;
+  line-height: 1.5;
+}
+
+/* card footer format*/
+.card__footer {
+  padding: 1em 1.618em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.card__hint {
+  font-size: 12pt;
+  color: var(--text);
+  opacity: 0.5;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* project card */
+.card--project {
+  border-radius: 12px;
+  border-left: 4px solid var(--nav-bg);
+}
+
+/* resume card with flip feature  */
+.card--resume {
+  height: 240px;
+  cursor: pointer;
+  background: none;
+  box-shadow: none;
+  border: none;
+  border-radius: 12px;
+  overflow: visible;
+  font-size: 12pt;
+}
+
+.card--resume:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.card__resume-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 500ms ease;
+  border-radius: 12px;
+}
+
+.card--resume-flipped .card__resume-inner {
+  transform: rotateY(180deg);
+}
+
+.card__resume-front,
+.card__resume-back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid var(--nav-bg);
+  background-color: var(--color-accent);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 1);
+  overflow: hidden;
+  font-size: 12pt;
+}
+
+.card__resume-back {
+  transform: rotateY(180deg);
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.card__header--back {
+  border-bottom: 1px solid var(--nav-bg);
+  width: 100%;
+  padding-bottom: 0.5em;
+}
+
+.card__header--back .card__title {
+  font-size: 12pt;
+  border-bottom: none;
+}
+
+.card__resume-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  width: 100%;
+}
+
+.card__resume-item {
+  font-size: 12pt;
+  color: var(--text);
+  line-height: 1.5;
+  padding-left: 1em;
+  border-left: 2px solid var(--nav-bg);
+}
+
+/* query for mobile resizing*/
+@media (max-width: 768px) {
+  .card-grid,
+  .about-card-grid,
+  .project-card-grid,
+  .api-card-grid,
+  .resume-card-grid {
+    grid-template-columns: auto-fit, minmax(280px,1fr);
+  }
+
+  .card--resume {
+    height: 270px;
+  }
+
+  .card-grid-section {
+    padding: 1em;
+  }
+}
