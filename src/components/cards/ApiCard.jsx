@@ -26,7 +26,7 @@ const [expanded, toggleExpanded] = useToggle(false);
           {expanded ? "Show Less ▲" : "Read More ▼"}
         </Button>
         <nav aria-label="navigation to projects">
-        <Link to="/projects" className="cardlink">Check out my Projects!</Link>
+        <Link to="/projects" className="cardlink">My Projects!</Link>
         </nav>
       </CardFooter>
     </Card>
