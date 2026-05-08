@@ -214,7 +214,8 @@ main {
 }
 
 .content{
-   max-width: 150ch;
+  max-width: 150ch;
+  margin: 2em;
 }
 
 .headshot {
