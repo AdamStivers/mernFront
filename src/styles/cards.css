@@ -33,7 +33,6 @@
   grid-template-columns: auto-fit, minmax(280px,1fr);
   gap: 2em;
   max-width: 800px;
-  margin: 2em;
 }
 
 .resume-card-grid {
